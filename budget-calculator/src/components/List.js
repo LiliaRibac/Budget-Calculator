@@ -2,16 +2,23 @@ import { fromUnixTime } from 'date-fns';
 import React from 'react';
 import Item from './Item';
 import { MdDelete } from 'react-icons/md';
-const List = ({ expenses }) => {
+const List = ({ expenses, handleEdit, handleDelete, clearItems }) => {
   return (
     <>
       <ul className="list">
         {expenses.map((expense) => {
-          return <Item key={expense.id} expense={expense} />;
+          return (
+            <Item
+              key={expense.id}
+              expense={expense}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+            />
+          );
         })}
       </ul>
       {expenses.length > 0 && (
-        <button className="btn">
+        <button className="btn" onClick={clearItems}>
           clear expenses
           <MdDelete className="btn-icon" />
         </button>
