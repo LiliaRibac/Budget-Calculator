@@ -1,13 +1,23 @@
+import { fromUnixTime } from 'date-fns';
 import React from 'react';
 import Item from './Item';
-
-const Form = () => {
+import { MdDelete } from 'react-icons/md';
+const List = ({ expenses }) => {
   return (
-    <div>
-      Hello from List
-      <Item />
-    </div>
+    <>
+      <ul className="list">
+        {expenses.map((expense) => {
+          return <Item key={expense.id} expense={expense} />;
+        })}
+      </ul>
+      {expenses.length > 0 && (
+        <button className="btn">
+          clear expenses
+          <MdDelete className="btn-icon" />
+        </button>
+      )}
+    </>
   );
 };
 
-export default Form;
+export default List;

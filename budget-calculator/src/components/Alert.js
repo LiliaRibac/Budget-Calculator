@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Form = () => {
+const Alert = () => {
   return <div>Hello from Alert</div>;
 };
 
-export default Form;
+export default Alert;
