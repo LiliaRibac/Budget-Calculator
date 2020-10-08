@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import List from './components/List';
 import Form from './components/Form';
@@ -35,7 +35,13 @@ function App() {
   // edit item
   const [id, setId] = useState(0);
 
-  // functionality
+  // *****************useEffect***********
+
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  }, [expenses]);
+
+  // *****************functionality***********
 
   // handle charge
   const handleCharge = (e) => {
