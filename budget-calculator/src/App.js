@@ -5,11 +5,14 @@ import Form from './components/Form';
 import Alert from './components/Alert';
 import { v4 as uuidv4 } from 'uuid';
 
-const initialExpenses = [
-  { id: uuidv4(), charge: 'rent', amount: 1600 },
-  { id: uuidv4(), charge: 'car', amount: 400 },
-  { id: uuidv4(), charge: 'credit bill', amount: 1200 },
-];
+const initialExpenses = localStorage.getItem('expenses')
+  ? JSON.parse(localStorage.getItem('expenses'))
+  : [];
+// const initialExpenses = [
+//   { id: uuidv4(), charge: 'rent', amount: 1600 },
+//   { id: uuidv4(), charge: 'car', amount: 400 },
+//   { id: uuidv4(), charge: 'credit bill', amount: 1200 },
+// ];
 
 function App() {
   // State value
